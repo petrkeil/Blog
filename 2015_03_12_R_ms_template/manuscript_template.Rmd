@@ -1,0 +1,111 @@
+---
+title: "Template for writing scientific papers in R markdown"
+author: "Petr Keil, pkeil@seznam.cz"
+date: "11/1/2015"
+output:
+  pdf_document:
+    fig_caption: yes
+    keep_tex: yes
+    number_sections: yes
+  html_document:
+    fig_caption: yes
+    force_captions: yes
+    highlight: pygments
+    number_sections: yes
+    theme: cerulean
+csl: mee.csl
+bibliography: references.bib
+---
+
+```{r, echo=FALSE}
+  # devtools::install_github("cboettig/knitcitations@v1")
+  library(knitcitations); cleanbib()
+  cite_options(citation_format = "pandoc", check.entries=FALSE)
+  library(bibtex)
+```
+
+# Abstract
+
+*Lorem ipsum dolor sit amet, est ad doctus eligendi scriptorem. Mel erat falli ut. Feugiat legendos adipisci vix at, usu at laoreet argumentum suscipiantur. An eos adhuc aliquip scriptorem, te adhuc dolor liberavisse sea. Ponderum vivendum te nec, id agam brute disputando mei.*
+
+
+
+# Introduction
+
+Lorem ipsum dolor sit amet, est ad doctus eligendi scriptorem. Mel erat falli ut. Feugiat legendos adipisci vix at, usu at laoreet argumentum suscipiantur. An eos adhuc aliquip scriptorem, te adhuc dolor liberavisse sea. Ponderum vivendum te nec, id agam brute disputando mei.
+
+Putant numquam tacimates at eum. Aliquip torquatos ex vis, mei et quando debitis appareat, impetus accumsan corrumpit in usu. Nam mucius facilis singulis id, duo ei autem imperdiet instructior. Cu ceteros alienum mel, id vix putant impedit, ex idque eruditi forensibus eum. Posse dicunt id usu. Ei iracundia constituto sed, duo ne exerci ignota, an eum unum conceptam.
+
+Has audire salutandi no, ut eam dicat libris dicunt. Pri hendrerit quaerendum adversarium ea, dicat atqui munere et sea. Illum insolens eos ne, eu enim graece rationibus mea. At postea utamur mel, eius nonumes percipitur at vis. Numquam similique in per, te quo saepe utroque pericula.
+
+Ea nonumy volumus usu, no mel inermis dissentias. Dico partiendo vituperatoribus eum et. Mea accusam convenire te, usu populo qualisque gloriatur ut. Eu eum oratio altera option, ad mea ignota scriptorem. Ne suas latine vix, eos oblique sanctus pertinax cu.
+
+
+
+# Methods
+
+Lorem ipsum dolor sit amet, est ad doctus eligendi scriptorem. Mel erat falli ut. Feugiat legendos adipisci vix at, usu at laoreet argumentum suscipiantur. An eos adhuc aliquip scriptorem, te adhuc dolor liberavisse sea. Ponderum vivendum te nec, id agam brute disputando mei.
+
+Putant numquam tacimates at eum. Aliquip torquatos ex vis, mei et quando debitis appareat, impetus accumsan corrumpit in usu. Nam mucius facilis singulis id, duo ei autem imperdiet instructior. Cu ceteros alienum mel, id vix putant impedit, ex idque eruditi forensibus eum. Posse dicunt id usu. Ei iracundia constituto sed, duo ne exerci ignota, an eum unum conceptam.
+
+## Equations
+
+The deterministic part of the model is defined by this **in-line equation** as 
+$\mu_i = \beta_0 + \beta_1x$, and the stochastic part by the **centered equation**: 
+
+$$ \frac{1}{\sqrt{2\pi}\sigma}e^{-(x-\mu_i)^2/(2\sigma^2)} $$
+
+## Tables
+
+```{r kable, echo=FALSE}
+library(knitr)
+
+x <- rnorm(100)
+y <- 2*x + rnorm(100)
+out <- lm(y ~ x)
+kable(summary(out)$coef, digits=2, caption="This is a GLM summary table.")
+```
+
+```{r xtable, results="asis", echo=FALSE, eval=FALSE, message=FALSE}
+library(xtable)
+tab <- xtable(summary(out)$coef, digits=c(0, 2, 2, 1, 2), 
+              caption="This is a GLM summary table.")
+print(tab, type="latex")
+```
+
+## Plots
+
+```{r carDataPlot, echo=FALSE, fig.cap="Relationship between x and y. The solid line is least-squares linear regression.", fig.width=4, fig.height=4}
+  plot(x, y)
+  abline(out)
+```
+
+
+
+## Citations
+
+The relationship was first described by
+`r citet("10.1111/j.1461-0248.2005.00827.x")`. However, there are also opinions
+that the relationship is spurious `r citep("10.1111/j.2041-210x.2012.00264.x")`.
+
+
+
+# Results and discussion
+
+Lorem ipsum dolor sit amet, est ad doctus eligendi scriptorem. Mel erat falli ut. Feugiat legendos adipisci vix at, usu at laoreet argumentum suscipiantur. An eos adhuc aliquip scriptorem, te adhuc dolor liberavisse sea. Ponderum vivendum te nec, id agam brute disputando mei.
+
+Putant numquam tacimates at eum. Aliquip torquatos ex vis, mei et quando debitis appareat, impetus accumsan corrumpit in usu. Nam mucius facilis singulis id, duo ei autem imperdiet instructior. Cu ceteros alienum mel, id vix putant impedit, ex idque eruditi forensibus eum. Posse dicunt id usu. Ei iracundia constituto sed, duo ne exerci ignota, an eum unum conceptam.
+
+Has audire salutandi no, ut eam dicat libris dicunt. Pri hendrerit quaerendum adversarium ea, dicat atqui munere et sea. Illum insolens eos ne, eu enim graece rationibus mea. At postea utamur mel, eius nonumes percipitur at vis. Numquam similique in per, te quo saepe utroque pericula.
+
+Ea nonumy volumus usu, no mel inermis dissentias. Dico partiendo vituperatoribus eum et. Mea accusam convenire te, usu populo qualisque gloriatur ut. Eu eum oratio altera option, ad mea ignota scriptorem. Ne suas latine vix, eos oblique sanctus pertinax cu.
+
+# References
+
+```{r, warning=FALSE, message=FALSE, echo=FALSE} 
+  write.bibtex(file="references.bib")
+```
+
+
+
+

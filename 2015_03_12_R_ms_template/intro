@@ -1,0 +1,10 @@
+# Simple template for scientific manuscript in R markdown
+
+The good reasons to write scientific manuscripts in LaTeX or Markdown are: better integrity (always), simplicity (not always) and reproducibility (always).
+
+I prefer the lightweight and simple Markdown over rich but also more complex LaTeX -- I think that light and simple is good for reproducibility. I am also in love with Knitr and R studio (sorry Vim and Emacs diehards).
+
+Hence, I made this simple 
+
+
+Reproducibility [is a challenge](http://ropensci.org/blog/2014/06/09/reproducibility/), yet 
