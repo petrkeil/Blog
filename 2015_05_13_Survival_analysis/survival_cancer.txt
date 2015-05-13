@@ -1,0 +1,18 @@
+
+    model
+    {
+      # priors
+      for(j in 1:4)
+      {
+        # prior lambda for each group
+        lambda[j] ~ dgamma(0.001, 0.001)
+        mu[j] <- 1/lambda[j] # mean time to death
+      }
+      # likelihood
+      for(i in 1:N)
+      {
+        is.censored[i] ~ dinterval(t.to.death[i], t.cen[i])
+        t.to.death[i] ~ dexp(lambda[group[i]])
+      }
+   }
+   

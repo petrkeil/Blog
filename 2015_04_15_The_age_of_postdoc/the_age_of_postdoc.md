@@ -1,6 +1,6 @@
 # The age of Postdoc: towards liberation of academic middle class
 
-Nature has an article about the daunting prospects for current postdocs in some countries ([Nature 520, 144-147](http://www.nature.com/news/the-future-of-the-postdoc-1.17253)). The article is stimulating but reports only a few relatively ad-hoc ways to fix the situation. In the discussion below the article Peter Jurica mentions *postdocs as middle class *(of academia). I think that this simple analogy can inspire more fundamental actions and paradigm shifts, potentially improving the system in favor of postdocs. I've tried to outline them below, building on my limited experience from the US, UK, France and the Czech Republic – hence, my (random) ideas will apply differently in different countries and types of universities. The specific countries which I have in mind are US, UK and Germany, where postdocs have especially hard time seeing the future for all the bottlenecks. 
+Nature has an article about the daunting prospects for current postdocs in some countries ([Nature 520, 144-147](http://www.nature.com/news/the-future-of-the-postdoc-1.17253)). The article is stimulating but reports only a few relatively ad-hoc ways to fix the situation. In the discussion below the article Peter Jurica mentions *postdocs as middle class* (of academia). I think that this simple analogy can inspire more fundamental actions and paradigm shifts, potentially improving the system in favor of postdocs. I've tried to outline them below, building on my limited experience from the US, UK, France and the Czech Republic – hence, my (random) ideas will apply differently, or can even be irrelevant, in different countries and types of universities. The specific countries which I have in mind are US, UK and Germany, where postdocs have especially hard time seeing the future for all the bottlenecks. 
 		
 These are my suggestions:
 
@@ -22,4 +22,4 @@ These are my suggestions:
 
 9. **Put lab assistants and technicians who contributed work as co-authors on the resulting publications.** They do care! It costs almost nothing, and it makes people feel involved, appreciated and interested in the subject. It also makes sense because they are real part of the research effort. Finally, it means brighter prospects for a postdoc who voluntarily or involuntarily goes for a technician position but still loves science, or hopes to get back to an academic position one day.
 
-10. **Change the label from 'postdoc' to 'researcher'.** This is just to clarify what postdocs really are.
+10. **Change the label from postdoc to researcher.** This is just to clarify what postdocs really are.
