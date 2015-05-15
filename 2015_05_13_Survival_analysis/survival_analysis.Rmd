@@ -1,5 +1,5 @@
 ---
-title: 'Survival analysis: basic terms, simple exponential model, censoring, examples
+title: 'Survival analysis: basic terms, the exponential model, censoring, examples
   in R and JAGS'
 author: "Petr Keil, pkeil@seznam.cz"
 date: "05/04/2015"
@@ -25,7 +25,7 @@ The main sources that I heavily relied on are:
 * **Crawley (2007) The R book**, chapter 25 - Survival Analysis (I use the data
 and many didactic formulations).
 
-* I am grateful to the authors of [this document](http://www.amstat.org/chapters/northeasternillinois/pastevents/presentations/summer05_Ibrahim_J.pdf) (unknown author) and [this document](http://data.princeton.edu/pop509/ParametricSurvival.pdf) (G. Rodríguez) for nice expositions.
+* I am grateful to the authors of [this document](http://www.amstat.org/chapters/northeasternillinois/pastevents/presentations/summer05_Ibrahim_J.pdf) (Joseph G. Ibrahim) and [this document](http://data.princeton.edu/pop509/ParametricSurvival.pdf) (G. Rodríguez) for nice expositions.
 
 * The [Wikipedia article](https://en.wikipedia.org/wiki/Survival_analysis) on Survival analysis.
 
@@ -89,6 +89,8 @@ $$\frac{d}{dt}\Lambda(t)=-\frac{S'(t)}{S(t)}= \lambda(t)$$
 **Mean time to death** ($\mu$) for continuous $S(t)$ is:
 
 $$ \mu =\! \int_0^\infty uf(u)du$$
+
+I have received a comment (signed by Jonah Takalua) that this can also be written as $$\mu =\! \int_0^\infty S(u)du$$ which can be easier to deal with.
 
 # Exponentially declining $f(t)$ 
 

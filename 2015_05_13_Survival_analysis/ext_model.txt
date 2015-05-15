@@ -1,0 +1,8 @@
+
+    model
+    {
+      # prior
+      P ~ dbeta(1,1)
+      n.succ ~ dbin(P, n.trials)
+    }
+    
