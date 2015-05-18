@@ -1,6 +1,6 @@
-# Support for LaTeX and open document formats in ecological journals
+# Do major ecological journals support LaTeX and open document formats?
 
-Last week I started to draft a manuscript that is heavy on the computation side and that uses large data.This requires everything to be well documented and organized, otherwise I get lost in my own code. The real challenge is then to confront my analyses with the co-authors and, ultimately, journal referees -- a little request ("oh, it would be nice to add this or that" or "you've forgot to log-transform this") can easily force me to re-analyze everything.
+Last week I started to draft a manuscript that is heavy on the computation side and it uses large data.This requires everything to be well documented and organized, otherwise I get lost in my own code. The real challenge is then to confront my analyses with the co-authors and, ultimately, journal referees -- a little request ("oh, it would be nice to add this or that" or "you've forgot to log-transform this") can easily force me to re-analyze everything.
 
 The best way to minimize the hassle and to prevent errors is to make everything transparent, [open and reproducible](https://ropensci.org/blog/2014/06/09/reproducibility/), and to link the the manuscript with the figures and tables produced directly by the code. An open framework that enables all of this is [LaTeX](https://en.wikipedia.org/wiki/LaTeX) with its `.tex` extension.
 
@@ -48,7 +48,7 @@ So I've made a quick research, checking the acceptable manuscript formats in maj
 
 ## Some highlights
 
-* *Diversity and Distributions* is gives almost no information on what it accepts. So I assume that it accepts everything, but I'd still prefer the journal to state it explicitly.
+* *Diversity and Distributions*  gives almost no information on what it accepts. So I assume that it accepts everything, but I'd still prefer the journal to state it explicitly.
 
 * *Ecography* is the strictest supporter of Microsoft and its proprietary formats by not even allowing `.rtf`, let alone `.tex`.
 
