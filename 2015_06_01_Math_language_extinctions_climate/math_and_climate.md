@@ -26,7 +26,7 @@ Note: Of course language can be pretty abstract, and hence math can also be very
 
 **Climate change**: We know relatively well what has been happenning with climate during the last 100 years -- we have all the measurements. However, the link between the observed change and human activity has been questioned. 
 
-**Species extinctions**: We know what happens when habitats shrink: species go extinct and we lose biodiversity. This stems from the relationship between area and the number of unique species in that area, the *Endemics-Area Relationship (EAR)*. We also know that habitable area of the most diverse areas has been shrinking due to human activity. However, we lack direct measurements of the actual loss of species -- not because they don't occur, but because an  extinction is, when it happens, difficult to register.
+**Species extinctions**: We know what happens when habitats shrink: species go extinct and we lose biodiversity. This stems from the relationship between area and the number of unique species in that area, the *Endemics-Area Relationship (EAR)*. We also know that habitable area of the most diverse areas has been shrinking due to human activity. However, we lack direct measurements of the actual loss of species -- not because it doesn't occur, but because an  extinction is, when it happens, difficult to register.
 
 Putting them next to each other: We know that humans have been causing extinctions, but we can't observe them. In contrast, we are not sure if humans are causing climate change, but we can directly measure it. It's inversed, in a way.
 
