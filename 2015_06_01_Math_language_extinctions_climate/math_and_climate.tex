@@ -1,0 +1,122 @@
+\documentclass[]{article}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+\else % if luatex or xelatex
+  \ifxetex
+    \usepackage{mathspec}
+    \usepackage{xltxtra,xunicode}
+  \else
+    \usepackage{fontspec}
+  \fi
+  \defaultfontfeatures{Mapping=tex-text,Scale=MatchLowercase}
+  \newcommand{\euro}{€}
+\fi
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+% use microtype if available
+\IfFileExists{microtype.sty}{%
+\usepackage{microtype}
+\UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\usepackage[margin=1in]{geometry}
+\ifxetex
+  \usepackage[setpagesize=false, % page size defined by xetex
+              unicode=false, % unicode breaks when used with xetex
+              xetex]{hyperref}
+\else
+  \usepackage[unicode=true]{hyperref}
+\fi
+\hypersetup{breaklinks=true,
+            bookmarks=true,
+            pdfauthor={Petr Keil},
+            pdftitle={Math vs.~language, extinctions vs.~climate change},
+            colorlinks=true,
+            citecolor=blue,
+            urlcolor=blue,
+            linkcolor=magenta,
+            pdfborder={0 0 0}}
+\urlstyle{same}  % don't use monospace font for urls
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\setcounter{secnumdepth}{0}
+
+%%% Use protect on footnotes to avoid problems with footnotes in titles
+\let\rmarkdownfootnote\footnote%
+\def\footnote{\protect\rmarkdownfootnote}
+
+%%% Change title format to be more compact
+\usepackage{titling}
+\setlength{\droptitle}{-2em}
+  \title{Math vs.~language, extinctions vs.~climate change}
+  \pretitle{\vspace{\droptitle}\centering\huge}
+  \posttitle{\par}
+  \author{Petr Keil}
+  \preauthor{\centering\large\emph}
+  \postauthor{\par}
+  \predate{\centering\large\emph}
+  \postdate{\par}
+  \date{30/05/2015}
+
+
+
+
+\begin{document}
+
+\maketitle
+
+
+Two unrelated insights that I've recently had:
+
+\subsection{Math isn't more abstract than language, it's just
+exact}\label{math-isnt-more-abstract-than-language-its-just-exact}
+
+The reason is that mathematical notation is part of the same language
+that we speak, and any mathematical formula is, in fact, a written (or
+spoken) sentence. Example:
+
+\[F(x)=\int_a^b \! f(x) \, \mathrm{d}x\]
+
+Which is equivalent to: \emph{The value of function F at x equals to the
+area of the region in the xy-plane that is bounded by the graph of f,
+the x-axis, and the vertical lines at a and b.} Here, math is English.
+But it can also be written as Chinese or Hungarian, or any other
+language.
+
+I realized that what makes math special in comparison with broader
+language isn't its abstractness, but rather the opposite:
+\textbf{mathematics emerges where things are exactly defined and follow
+strict deductive logic}. The rest of language is a minefield of
+metaphors, logical loopholes, and ambiguities.
+
+Note: Of course language can be pretty abstract, and hence math can also
+be very abstract. My insight concerns the relationship between the two.
+
+\subsection{Extinctions and climate change are inverse scientific
+problems}\label{extinctions-and-climate-change-are-inverse-scientific-problems}
+
+\textbf{Climate change}: We know relatively well what has been
+happenning with climate during the last 100 years -- we have all the
+measurements. However, the link between the observed change and human
+activity has been questioned.
+
+\textbf{Species extinctions}: We know what happens when habitats shrink:
+species go extinct and we lose biodiversity. This stems from the
+relationship between area and the number of unique species in that area,
+the \emph{Endemics-Area Relationship (EAR)}. We also know that habitable
+area of the most diverse areas has been shrinking due to human activity.
+However, we lack direct measurements of the actual loss of species --
+not because they don't occur, but because an extinction is, when it
+happens, difficult to register.
+
+Putting them next to each other: We know that humans have been causing
+extinctions, but we can't observe them. In contrast, we are not sure if
+humans are causing climate change, but we can directly measure it. It's
+inversed, in a way.
+
+\end{document}

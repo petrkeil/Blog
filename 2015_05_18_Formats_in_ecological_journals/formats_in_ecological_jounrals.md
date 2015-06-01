@@ -1,8 +1,11 @@
-# Do major ecological journals support LaTeX and open document formats?
+---
+output: html_document
+---
+# Do ecological journals support LaTeX and open document formats?
 
 Last week I started to draft a manuscript that is heavy on the computation side and it uses large data.This requires everything to be well documented and organized, otherwise I get lost in my own code. The real challenge is then to confront my analyses with the co-authors and, ultimately, journal referees -- a little request ("oh, it would be nice to add this or that" or "you've forgot to log-transform this") can easily force me to re-analyze everything.
 
-The best way to minimize the hassle and to prevent errors is to make everything transparent, [open and reproducible](https://ropensci.org/blog/2014/06/09/reproducibility/), and to link the the manuscript with the figures and tables produced directly by the code. An open framework that enables all of this is [LaTeX](https://en.wikipedia.org/wiki/LaTeX) with its `.tex` extension.
+One way to minimize the hassle and to prevent errors is to make everything transparent, [open and reproducible](https://ropensci.org/blog/2014/06/09/reproducibility/), and to link the the manuscript with the figures and tables produced directly by the code. An open framework that enables all of this is [LaTeX](https://en.wikipedia.org/wiki/LaTeX) with its `.tex` extension.
 
 Another 100% open format is [OpenDocument](https://en.wikipedia.org/wiki/OpenDocument) (with the `.odt` extension). It lacks the LaTeX's ability to link stuff and to deal with math, but it is the default format of [the most popular free office suite](https://www.libreoffice.org/), and so it is accessible to anyone with limited budget. Plus, it has all of the functionality of `.doc`, `.docx` and `.rtf`, including support for comments, revision control, equations, or Zotero references.
 
