@@ -4,13 +4,13 @@ title: 'Survival analysis: basic terms, the exponential model, censoring, exampl
 author: "Petr Keil, pkeil@seznam.cz"
 date: "05/04/2015"
 output:
+  pdf_document:
+    number_sections: yes
+    toc: yes
   html_document:
     highlight: pygments
     number_sections: yes
     theme: cerulean
-    toc: yes
-  pdf_document:
-    number_sections: yes
     toc: yes
 ---
 
@@ -90,7 +90,7 @@ $$\frac{d}{dt}\Lambda(t)=-\frac{S'(t)}{S(t)}= \lambda(t)$$
 
 $$ \mu =\! \int_0^\infty uf(u)du$$
 
-I have received a comment (signed by Jonah Takalua) that this can also be written as $$\mu =\! \int_0^\infty S(u)du$$ which can be easier to deal with.
+This can also be written as $$\mu =\! \int_0^\infty S(u)du$$ which can be easier to deal with (the proof is [here](http://thirdorderscientist.org/homoclinic-orbit/2013/6/25/the-darth-vader-rule-mdash-or-computing-expectations-using-survival-functions)).
 
 # Exponentially declining $f(t)$ 
 
