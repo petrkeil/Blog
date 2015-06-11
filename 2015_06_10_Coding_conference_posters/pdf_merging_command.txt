@@ -1,0 +1,4 @@
+Here is the bash command to tile multiple .pdfs into one .jpg.
+It is using Imagemagick:
+
+montage -geometry +5+5 -border 100 -background '#000000' -fill '#000000'  -bordercolor '#000000' poster1.pdf poster2.pdf poster3.pdf merged.jpg

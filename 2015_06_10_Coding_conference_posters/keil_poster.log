@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2015.2.27)  11 JUN 2015 10:48
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2015.2.27)  11 JUN 2015 13:41
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -956,7 +956,7 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 Here is how much of TeX's memory you used:
  19059 strings out of 493304
  372345 string characters out of 6139871
- 554399 words of memory out of 5000000
+ 554675 words of memory out of 5000000
  22033 multiletter control sequences out of 15000+600000
  62468 words of font info for 126 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
@@ -966,7 +966,7 @@ r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share
 /texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texli
 ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/share/texlive/tex
 mf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on keil_poster.pdf (1 page, 1094346 bytes).
+Output written on keil_poster.pdf (1 page, 1094311 bytes).
 PDF statistics:
  125 PDF objects out of 1000 (max. 8388607)
  76 compressed objects within 1 object stream
