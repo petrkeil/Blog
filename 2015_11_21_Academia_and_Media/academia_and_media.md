@@ -1,0 +1,19 @@
+**On soil larvae, Beverly Hills, passion, macroecology, and the problem of describing what I do**
+
+I have always found it difficult to explain my profession to people. 
+
+For my bachelor degree I studied larvae of family of inconspicuous flies (Insecta: Diptera: Therevidae) in soils of remote forest fragments in central Europe. There were about five people around the world that have ever heard of these flies, but I did not care as I was passionately in love with insects. Somehow I secured a small grant from Beverly Hills entrepreneur Rudolf H. Mattoni, and boy that was difficult to explain. A rich guy from Beverly Hills gave you money to do *that*? Is it going to be your job?
+
+The money had run out fast. I had realized that if I followed my passion too far, I'd be living in a closet with a stereo microscope, observing ornamental bristle configurations on hind legs of obscure insects. I'd be really good at it, but unable to pay my rent, and with sex life limited to dissections of H-shaped 0.2 mm penises from the abdomens of Therevid males. Following the “follow your passion” cliché turned out to be impractical.
+
+So I decided that I need to push myself out of my comfort zone, to a scientific field that is far from insect penises as possible.
+
+I went to the library and scanned printed issues (it was 2003) of scientific journals, trying to figure out what is the most densely populated field of science that could accommodate a former entomologist. Macroecology seemed like the right choice (the *macro* prefix sounded like *great*), Nature and Science seemed like the right venues to aim for, and Robert M. May, Edward O. Wilson and James H. Brown like the right role models. Off I went to pursue my master degree, and later on my PhD.
+
+First, I was surprised how fast a new kind of passion kicked in: Programming. To do macroecology one needs programming, and programming is similar to entomology. One spends most of the time in a contemplative search for bugs. Only programming is a bit less field-specific, and hence more social – all of a sudden I could discuss programming tricks with people outside of academia.
+
+But I also held a misconception that the more people there are working on a problem (and the higher the IF of the journals they publish in), the more important the problem is, and the more is its importance obvious to non-academics. Examples: What generates biodiversity patterns? What regulates populations? Are communities neutral? Massive ecological questions, but I have never managed to explain to my grandmother that answering them is my job. My wife got it after roughly a year, my parents are still working on it. My kids are too young still, but I can already see that my 2-year old son is more excited by seeing a fireman than by me reviewing a paper on biodiversity gradients.
+
+This is what I have been thinking: I could perhaps use my passion for chasing bugs to work on something that people get. And I noticed that there is one macroecological problem that everybody understands, although it is also the problem that is hardest to observe: Extinctions. The idea that something beautiful disappears because people take its space for living is crystal clear to my grandmother, to my wife, and I can imagine explaining it to my kids.
+
+It already seems to be the right way to go. Two weeks ago my first paper on extinctions came out (check it out [here](http://www.nature.com/ncomms/2015/151117/ncomms9837/pdf/ncomms9837.pdf)) and I was asked to do a live BBC interview. I had no idea how to prepare for it, so I didn't, and of course it was bad – I failed to explain why are our results important, I lacked confidence and all the usual crap (advice: never speak to media wearing pyjamas). But these are just technical problems that I can work on; the important and uplifting lesson is that I have maybe, finally, found an audience.

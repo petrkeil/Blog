@@ -4,13 +4,13 @@ title: 'Survival analysis: basic terms, the exponential model, censoring, exampl
 author: "Petr Keil, pkeil@seznam.cz"
 date: "05/04/2015"
 output:
-  pdf_document:
-    number_sections: yes
-    toc: yes
   html_document:
     highlight: pygments
     number_sections: yes
     theme: cerulean
+    toc: yes
+  pdf_document:
+    number_sections: yes
     toc: yes
 ---
 
@@ -347,6 +347,8 @@ The data for this example come, again, from Crawley's book:
   summary(cancer)
 ```
 
+The `status` variable indicates if the observation is censored (0) or if it represents real time to death (1).
+
 ## Challenges of censoring in JAGS
 
 Censoring in JAGS is done with `dinterval` distribution, and it takes 
@@ -436,4 +438,98 @@ to death $\mu$:
 ```
 
 `mu[1:3]` are for the treatments, `mu[4]` is the placebo.
+
+# Continuous predictor of hazard in JAGS
+
+I will use the `roaches` dataset from the Crawley's book.
+
+```{r}
+  roaches <- read.table("http://goo.gl/NvtpNb", header=TRUE)
+  summary(roaches)
+```
+
+## The `survreg` solution
+
+Survival analysis using `survreg`, with `weight` as the predictor:
+```{r}
+  m1 <- survreg(Surv(death, status) ~ weight, dist="exponential",  data=roaches)
+  summary(m1)
+```
+
+## The JAGS solution
+
+First, I need to prepare the censored data:
+
+```{r}  
+  censored <- roaches$status==0
+  is.censored <- censored*1
+  t.to.death <- roaches$death
+  t.to.death[censored] <- NA
+  t.to.death
+  
+  t.cen <- rep(0, times=length(censored))
+  t.cen[censored] <- roaches$death[censored] 
+  t.cen
+
+  # put the data together for JAGS
+  roaches.data <- list(t.to.death = t.to.death,
+                       t.cen = t.cen,
+                       N = nrow(roaches),
+                       weight = roaches$weight)
+```
+
+The model definition:
+
+```{r}
+  cat("
+    model
+    {
+      # priors
+      beta0 ~ dnorm(0, 0.001)
+      beta1 ~ dnorm(0, 0.001)
+
+      # likelihood
+      for(i in 1:N)
+      {
+        is.censored[i] ~ dinterval(t.to.death[i], t.cen[i])
+        t.to.death[i] ~ dexp(lambda[i])
+        # NOTE: I am linking mu, not lambda to the predictor (unlike above)
+        # log(lambda[i]) <- beta0 + beta1*weight[i]
+        # mu[i] <- 1/lambda[i] # mean time to death
+
+        lambda[i] <- 1/mu[i]
+        log(mu[i]) <- beta0 + beta1*weight[i]
+      }
+   }
+   ", file="survival_roaches.txt")
+```
+
+```{r, message=FALSE, warning=FALSE, , results='hide'}
+  library(runjags)
+  library(coda)
+
+  roaches.fit <- run.jags(data = roaches.data, 
+                          model = "survival_roaches.txt", 
+                          monitor = c("beta0", "beta1"),
+                          sample = 10000, burnin = 5000, n.chains = 3)
+```
+
+Here I plot the resulting posterior distributions of the intercept and slope.
+THe red vertical lines are estimates from the `survreg` function:
+
+```{r}
+  summary(roaches.fit)
+  par(mfrow=c(1,2))
+  densplot(as.mcmc(roaches.fit)[,"beta0"], xlim=c(1.5,3.5))
+    abline(v=m1$coef[1], col="red")
+  densplot(as.mcmc(roaches.fit)[,"beta1"])
+   abline(v=m1$coef[2], col="red")
+```
+
+**It does not look good! Am I doing something wrong!**
+
+
+
+
+
 

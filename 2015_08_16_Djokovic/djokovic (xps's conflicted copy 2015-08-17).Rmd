@@ -1,0 +1,35 @@
+---
+title: "What did Novak Djokovic really smell?"
+output: html_document
+---
+
+As [reported by BBC](http://www.bbc.com/sport/0/tennis/33951245), World number one Novak Djokovic complained to the umpire that he could smell cannabis on court during his Rogers Cup win over Jeremy Chardy. After winning the first set, the Serb approached the chair, saying: 
+
+> "Someone is smoking weed, I can smell it, I'm getting dizzy. ... You can't believe how bad it was. ... Whoever it is, I hope he doesn't come back tomorrow. He's probably on the seventh sky somewhere." 
+
+When I moved to the US in 2011, I also smelled cannabis everywhere, sometimes the foul smell crawled into the bedroom through the open window and woke us up.
+
+Then I noticed that people must be smoking weed on highways -- on empty highways in the middle of nowhere in the middle of the night. Everything is quiet, you drive with the high beams through the hot summer night, no signs of a human being for miles, and all of a sudden the AC starts pumping in the smell of [Dutch Passion Skunk #1](http://www.dutch-passion.nl/en/cannabis-seeds/product/skunk-1/).
+
+Then I learned what it really was:
+
+!["Mephitis mephitis Striped skunk alerted Las Trampas sm" by Dcrjsr - Own work. Licensed under CC BY 4.0 via Commons - https://commons.wikimedia.org/wiki/File:Mephitis_mephitis_Striped_skunk_alerted_Las_Trampas_sm.jpg#/media/File:Mephitis_mephitis_Striped_skunk_alerted_Las_Trampas_sm.jpg](skunk.jpg)
+
+Now could Novak Djokovic in fact smell Striped skunk (*Mephitis mephitis*) instead of cannabis?
+
+Let's check if the skunk's [geographic range on Map of Life](http://species.mol.org/species/map/Mephitis_mephitis) covers Montreal, Canada (that's where semifinals of Rogers Cup are located):
+
+![](skunkmap.png)
+
+Let's check if there are parks and gardens around the main tennis court:
+
+![](venue.png)
+
+With this I conclude that Novak Djokovic could very well just smell a skunk, and as a European he could have mistaken if for cannabis.
+
+But then I cannot really reject the possibility that someone was smoking cannabis at the stadium either. In fact, I wonder how many of 
+
+
+
+
+

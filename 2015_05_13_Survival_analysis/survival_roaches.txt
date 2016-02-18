@@ -1,0 +1,21 @@
+
+    model
+    {
+      # priors
+      beta0 ~ dnorm(0, 0.001)
+      beta1 ~ dnorm(0, 0.001)
+
+      # likelihood
+      for(i in 1:N)
+      {
+        is.censored[i] ~ dinterval(t.to.death[i], t.cen[i])
+        t.to.death[i] ~ dexp(lambda[i])
+        # NOTE: I am linking mu, not lambda to the predictor (unlike above)
+        # log(lambda[i]) <- beta0 + beta1*weight[i]
+        # mu[i] <- 1/lambda[i] # mean time to death
+
+        lambda[i] <- 1/mu[i]
+        log(mu[i]) <- beta0 + beta1*weight[i]
+      }
+   }
+   
