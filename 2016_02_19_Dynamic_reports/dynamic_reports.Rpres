@@ -1,10 +1,7 @@
 Dynamic scientific reports, literate programming, markup languages
-========================================================
+==================================================================
 author: Petr Keil
 date: 19 Feb 2016, iDiv, Leipzig, Germany
-
-Example documents
-========================================================
 
 Literate programming
 ========================================================
@@ -26,11 +23,22 @@ Markup languages
 Markup languages
 ========================================================
 
-Useful in science:
+Useful in practical science:
 
 - html
 - LaTeX
 - Markdown
+
+Example documents
+========================================================
+
+- Markdown document
+- R Markdown document
+- R Markdown presentation
+- LaTeX document
+- LaTeX presentation
+- LaTeX poster
+
 
 Markdown
 ========================================================
