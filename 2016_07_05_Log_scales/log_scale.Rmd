@@ -1,0 +1,87 @@
+---
+title: "Logarithmic axes with linear tickmarks in a single R plot"
+author: "Petr Keil"
+date: "July 6, 2016"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+I have always loved [Mathematica's](http://media.virtual-maxim.de/uploads/2010/12/ErrorBarLogPlots_Mathmatica.png) and [Matlab's log-log plots](http://www.mathworks.com/matlabcentral/mlc-downloads/downloads/submissions/35265/versions/2/previews/html/Loglog_Plot_01.png) with logarithmic axes and linear
+tickmarks. In a way, they enable to visualize both multiplication and addition in a single image. They also enable to more easily assign values to data points.
+
+I haven't found a simple 'one-liner' way to do such plots in R. Actually, I have always found R's treatment of logarithmic axes a bit dull and unsatisfactory.
+
+# Function `loglog.plot`
+
+To provide the log-linear plotting functionality, I have made my own function `loglog.plot`.
+
+**Arguments:**
+
+`xlim, ylim` - Numeric vectors of length 2, giving the x and y coordinates ranges.
+
+`xlog, ylog` - Logical value indicating if x and y axes should be logarithmic or linear. In case they are linear, no grid is drawn.  
+
+`xbase, ybase` - Base of the logarithm of the respective axes.
+
+`...` - Further arguments to the generic R function `plot`.
+
+**The function:**
+
+```{r}
+loglog.plot <- function(xlim=c(0.01,1000), xlog=TRUE, xbase=10, 
+                        ylim=c(0.3,1000), ylog=TRUE, ybase=2, ...)
+{
+  if(xlog) # rounding the X-axis limits on the log scale
+  {
+    xlim[1] <- floor(log(xlim[1], base=xbase))
+    xlim[2] <- round(log(xlim[2], base=xbase))
+    xbreaks <- xlim[1]:xlim[2]
+  }
+  if(ylog) # rounding the Y-axis limits on the log scale
+  { 
+    ylim[1] <- floor(log(ylim[1], base=ybase))
+    ylim[2] <- round(log(ylim[2], base=ybase))
+    ybreaks <- ylim[1]:ylim[2]
+  }
+
+  ### the empty plot into which the axes will be drawn ###
+  plot(xlim, ylim, type="n", axes=FALSE, frame=TRUE, ...)
+
+  if(xlog) # plotting the X-axis tickmarks and grids
+  {
+    for(x in xbase^xbreaks)
+    {
+      subx <- log(seq(from=x, to=x*xbase, length=xbase) , base=xbase )
+      abline(v=subx, col="grey")
+    }
+    axis(side=1, at=xbreaks, labels=xbase^xbreaks, tck=0.02)
+  }
+  else  axis(side=1, tck=0.02)
+
+  if(ylog) # plotting the Y-axis tickmarks and grids
+  {
+    for(y in ybase^ybreaks)
+    {
+      suby <- log(seq(from=y, to=y*ybase, length=ybase), base=ybase)  
+      abline(h=suby, col="grey")
+    }
+    axis(side=2, at=ybreaks, labels=ybase^ybreaks, las=2, tck=0.02)
+  }
+  else axis(side=1, tck=0.02)
+}
+```
+
+**Example 1 - both axes logarithmic**
+
+```{r, fig.width=8, fig.height=8}
+  loglog.plot(xlab="log with base of 10", ylab="log with base of 2")
+```
+
+**Example 2 - x axis linear, y axis logarithmic**
+
+```{r, fig.width=8, fig.height=8}
+  loglog.plot(xlab="log with base of 10", ylab="log with base of 2")
+```
