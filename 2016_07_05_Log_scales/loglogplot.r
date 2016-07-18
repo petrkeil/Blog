@@ -37,5 +37,5 @@ loglog.plot <- function(xlim=c(1,1000), xlog=TRUE, xbase=10,
     }
     axis(side=2, at=ybreaks, labels=ybase^ybreaks, las=2, tck=0.02)
   }
-  else axis(side=1, tck=0.02)
+  else axis(side=2, tck=0.02)
 }

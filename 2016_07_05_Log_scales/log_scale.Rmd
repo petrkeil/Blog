@@ -1,5 +1,5 @@
 ---
-title: "Logarithmic axes with linear tickmarks in a single R plot"
+title: "Logarithmic axes with linear tickmarks and gridlines in a single R plot"
 author: "Petr Keil"
 date: "July 6, 2016"
 output: html_document
@@ -12,11 +12,11 @@ knitr::opts_chunk$set(echo = TRUE)
 I have always liked [Mathematica's](http://media.virtual-maxim.de/uploads/2010/12/ErrorBarLogPlots_Mathmatica.png) and [Matlab's log-log plots](http://www.mathworks.com/matlabcentral/mlc-downloads/downloads/submissions/35265/versions/2/previews/html/Loglog_Plot_01.png) with logarithmic axes and linear
 tickmarks (and gridlines). In a way, they enable to visualize both the multiplication and addition in a single image. They also enable to more exactly visually connect data points with values.
 
-I haven't found a simple 'one-liner' that'd do such plots in R. In fact, I have always found R's treatment of logarithmic axes a bit dull and unsatisfactory.
+I haven't found a simple 'one-liner' that'd do such plots in R. In fact, I have always found R's treatment of logarithmic axes a bit dull and unsatisfactory. I really want the fancy gridlines!
 
-# Function `loglog.plot`
+## Function `loglog.plot`
 
-To provide the log-linear plotting, I have wrtitten function `loglog.plot`.
+To provide the log-linear gridlines and tickmarks, I have wrtitten function `loglog.plot`.
 
 **To load the function** directly from my GitHub repository:
 
@@ -30,18 +30,40 @@ source("https://raw.githubusercontent.com/petrkeil/Blog/master/2016_07_05_Log_sc
 
 `xlog, ylog` - Logical value indicating if x and y axes should be logarithmic (TRUE) or linear (FALSE). In case the linear scale is chosen, no gridlines are drawn.  
 
-`xbase, ybase` - Base of the logarithm of the respective axes.
+`xbase, ybase` - Base of the logarithm of the respective axes. Ignored if linear axis is specified.
 
 `...` - Further arguments to the generic R function `plot`.
 
-**Example 1 - both axes logarithmic**
+**Value:**
 
-```{r, fig.width=8, fig.height=8}
-  loglog.plot(xlab="log with base of 10", ylab="log with base of 2")
+Empty R base graphics plot, ready to be populated using `lines`, `points` and alike.
+
+## Example 1 - both axes logarithmic
+
+```{r, fig.width=10, fig.height=6}
+  par(mfrow=c(1,2))
+  x <- seq(1, 1000, by=10)
+
+  plot(x, x, ylim=c(0,4000))
+  points(x, x^0.8, col="blue")
+  points(x, x^1.2, col="red")
+
+  loglog.plot(xlab="x", ylab="y", ylim=c(1, 10000))
+  points(log10(x), log10(x), type="b")
+  points(log10(x), 0.8*log10(x), col="blue", type="b")
+  points(log10(x), 1.2*log10(x), col="red", type="b")
 ```
 
-**Example 2 - x axis linear, y axis logarithmic**
+## Example 2 - x logarithmic, y linear
 
-```{r, fig.width=8, fig.height=8}
-  loglog.plot(xlab="log with base of 10", ylab="log with base of 2")
+```{r, fig.width=10, fig.height=6}
+  par(mfrow=c(1,2))
+  plot(x,dlnorm(x, meanlog=4), ylim=c(0, 0.012), col="red", ylab="probability density")
+
+x <- 1:1000
+  loglog.plot(xlab="x", ylab="probability density", ylog=FALSE, ylim=c(0,0.012), xlim=c(0.1, 1000), xbase=10)
+   points(log10(x), dlnorm(x, meanlog=4), col="red")  
 ```
+
+
+
