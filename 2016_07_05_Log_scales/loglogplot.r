@@ -1,5 +1,5 @@
-loglog.plot <- function(xlim=c(0.01,1000), xlog=TRUE, xbase=10, 
-                        ylim=c(0.3,1000), ylog=TRUE, ybase=2, ...)
+loglog.plot <- function(xlim=c(1,1000), xlog=TRUE, xbase=10, 
+                        ylim=c(1,1000), ylog=TRUE, ybase=10, ...)
 {
   if(xlog) # rounding the X-axis limits on the log scale
   {
