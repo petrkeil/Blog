@@ -7,6 +7,10 @@ output:
     theme: cerulean
 ---
 
+LICENSE: This is a public domain work. Feel free to do absolutely whatever you want with the code or the images, there are no restrictions on the use.
+
+----------------------------------------
+
 Loading the `spatstat` library
 
 ```{r}
