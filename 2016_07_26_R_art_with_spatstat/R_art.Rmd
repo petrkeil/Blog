@@ -1,5 +1,5 @@
 ---
-title: "Reproducible psychedelic art with R: tribute to spatstat"
+title: "Reproducible psychedelic art with R: a tribute to spatstat"
 author: "Petr Keil"
 output: 
   html_document: 
@@ -7,7 +7,7 @@ output:
     theme: cerulean
 ---
 
-Loading the amazing `spatstat` library
+Loading the `spatstat` library
 
 ```{r}
   library(spatstat)
@@ -19,14 +19,16 @@ Defining the 2:3 window
   W23 <- as.owin(list(xrange=c(0,3), yrange=c(0,2)))
 ```
 
-# Airports
+# Figure 1
+
+Generate the patterns:
 
 ```{r}
   set.seed(1612)
   
   # The exponent
   Lambda <- 5
-  
+
   # Lay down the longest lines
   main.lines <- psp(runif(3),runif(3),runif(3),runif(3), window=W23)
   
@@ -46,26 +48,10 @@ Defining the 2:3 window
   dist.from.all.lines <- distmap(all.lines, dimyx=c(1200, 800))
 ```
 
-## Airport in the morning
+## 1A
 
 ```{r}
-  png(filename = "airport_in_the_morning.png", width=6000, height=4000, res=400)
-  par(mai=c(0,0,0,0))
-  # Distance from the all-line pattern
-  dist.from.all.lines.exp <- exp(-Lambda*dist.from.all.lines)
-  plot(dist.from.all.lines.exp, col=terrain.colors(100), 
-       legend=FALSE, main="", box=FALSE, ribbon=FALSE)
-  contour(dist.from.all.lines.exp, add=TRUE, lwd=2)
-  #contour(dist.from.all.lines, col="black", add=TRUE)
-  plot(sub.lines, add=T, lty=2, col="black", lwd=1)
-  plot(main.lines, add=T, col="black", lwd=4)
-  dev.off()
-```
-
-## Airport at night
-
-```{r}
-  png(filename = "airport_at_night.png", width=6000, height=4000, res=400)
+  png(filename = "Figure_1A.png", width=6000, height=4000, res=400)
   par(mai=c(0,0,0,0))
   dist.from.all.lines.exp <- exp(-Lambda*dist.from.all.lines)
   plot(dist.from.all.lines.exp, 
@@ -79,20 +65,36 @@ Defining the 2:3 window
   dev.off()
 ```
 
-# Night sky
+## 1B
 
 ```{r}
-set.seed(1611)
-set.seed(16211)
+  png(filename = "Figure_1B.png", width=6000, height=4000, res=400)
+  par(mai=c(0,0,0,0))
+  dist.from.all.lines.exp <- exp(-Lambda*dist.from.all.lines)
+  plot(dist.from.all.lines.exp, col=terrain.colors(100), 
+       legend=FALSE, main="", box=FALSE, ribbon=FALSE)
+  contour(dist.from.all.lines.exp, add=TRUE, lwd=2)
+  plot(sub.lines, add=T, lty=2, col="black", lwd=1)
+  plot(main.lines, add=T, col="black", lwd=4)
+  dev.off()
+```
+
+# Figure 2
+
+Generate the pattern:
+
+```{r}
+ set.seed(16211)
  rc <- rpoispp(function(x,y){50 * exp(-3*(max(y)-y))}, 100, win=W23)
  rcdist <- distmap(rc, dimyx=c(1200, 800))
- 
  rc2 <- rpoispp(1/rcdist*50)
  rcd <- dirichlet(rc2)
 ```
 
+## 2A
+
 ```{r}
-png(filename = "midnight_eggs.png", width=6000, height=4000, res=400)
+png(filename = "Figure_2A.png", width=6000, height=4000, res=400)
   par(mai=c(0,0,0,0))
  plot(rcdist, legend=FALSE, main="", frame=FALSE, box=FALSE, ribbon=FALSE)
  plot(rcd, add=T)
@@ -102,8 +104,10 @@ png(filename = "midnight_eggs.png", width=6000, height=4000, res=400)
 dev.off()
 ```
 
+## 2B
+
 ```{r}
-png(filename = "morning_eggs.png", width=6000, height=4000, res=400)
+png(filename = "Figure_2B.png", width=6000, height=4000, res=400)
   par(mai=c(0,0,0,0))
  plot(rcdist, legend=FALSE, main="", frame=FALSE, box=FALSE, ribbon=FALSE,
       col=terrain.colors(100))
