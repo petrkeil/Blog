@@ -1,0 +1,20 @@
+
+  model
+  {
+    # priors
+    sigma ~ dunif(0,100) # (you may want to use a more proper gamma prior)
+    tau <- 1/(sigma*sigma)
+    for(j in 1:N.pop)
+    {
+      mu[j] ~ dnorm(0, 0.0001)
+    }
+  
+    # likelihood
+    for(i in 1:N)
+    {
+      y[i] ~ dnorm(mu[x[i]], tau)
+    }
+
+    # the difference between populations 1 and 2:
+    delta12 <- mu[1] - mu[2]
+  }

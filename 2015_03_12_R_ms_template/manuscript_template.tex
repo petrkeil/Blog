@@ -9,12 +9,10 @@
 \else % if luatex or xelatex
   \ifxetex
     \usepackage{mathspec}
-    \usepackage{xltxtra,xunicode}
   \else
     \usepackage{fontspec}
   \fi
-  \defaultfontfeatures{Mapping=tex-text,Scale=MatchLowercase}
-  \newcommand{\euro}{€}
+  \defaultfontfeatures{Ligatures=TeX,Scale=MatchLowercase}
 \fi
 % use upquote if available, for straight quotes in verbatim environments
 \IfFileExists{upquote.sty}{\usepackage{upquote}}{}
@@ -24,8 +22,15 @@
 \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
 }{}
 \usepackage[margin=1in]{geometry}
+\usepackage{hyperref}
+\hypersetup{unicode=true,
+            pdftitle={Template for writing scientific papers in R markdown},
+            pdfauthor={Petr Keil, pkeil@seznam.cz},
+            pdfborder={0 0 0},
+            breaklinks=true}
+\urlstyle{same}  % don't use monospace font for urls
 \usepackage{longtable,booktabs}
-\usepackage{graphicx}
+\usepackage{graphicx,grffile}
 \makeatletter
 \def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
 \def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
@@ -34,27 +39,25 @@
 % margins by default, and it is still possible to overwrite the defaults
 % using explicit options in \includegraphics[width, height, ...]{}
 \setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
-\ifxetex
-  \usepackage[setpagesize=false, % page size defined by xetex
-              unicode=false, % unicode breaks when used with xetex
-              xetex]{hyperref}
-\else
-  \usepackage[unicode=true]{hyperref}
-\fi
-\hypersetup{breaklinks=true,
-            bookmarks=true,
-            pdfauthor={Petr Keil, pkeil@seznam.cz},
-            pdftitle={Template for writing scientific papers in R markdown},
-            colorlinks=true,
-            citecolor=blue,
-            urlcolor=blue,
-            linkcolor=magenta,
-            pdfborder={0 0 0}}
-\urlstyle{same}  % don't use monospace font for urls
+\IfFileExists{parskip.sty}{%
+\usepackage{parskip}
+}{% else
 \setlength{\parindent}{0pt}
 \setlength{\parskip}{6pt plus 2pt minus 1pt}
+}
 \setlength{\emergencystretch}{3em}  % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
 \setcounter{secnumdepth}{5}
+% Redefines (sub)paragraphs to behave more like sections
+\ifx\paragraph\undefined\else
+\let\oldparagraph\paragraph
+\renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+\let\oldsubparagraph\subparagraph
+\renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
 
 %%% Use protect on footnotes to avoid problems with footnotes in titles
 \let\rmarkdownfootnote\footnote%
@@ -62,6 +65,14 @@
 
 %%% Change title format to be more compact
 \usepackage{titling}
+
+% Create subtitle command for use in maketitle
+\newcommand{\subtitle}[1]{
+  \posttitle{
+    \begin{center}\large#1\end{center}
+    }
+}
+
 \setlength{\droptitle}{-2em}
   \title{Template for writing scientific papers in R markdown}
   \pretitle{\vspace{\droptitle}\centering\huge}
@@ -74,12 +85,8 @@
   \date{11/1/2015}
 
 
-
-
 \begin{document}
-
 \maketitle
-
 
 \section{Abstract}\label{abstract}
 
@@ -138,7 +145,7 @@ the \textbf{centered equation}:
 
 \subsection{Tables}\label{tables}
 
-\begin{longtable}[c]{@{}lrrrr@{}}
+\begin{longtable}[]{@{}lrrrr@{}}
 \caption{This is a GLM summary table.}\tabularnewline
 \toprule
 & Estimate & Std. Error & t value &
@@ -150,8 +157,8 @@ Pr(\textgreater{}\textbar{}t\textbar{})\tabularnewline
 Pr(\textgreater{}\textbar{}t\textbar{})\tabularnewline
 \midrule
 \endhead
-(Intercept) & 0.03 & 0.1 & 0.31 & 0.76\tabularnewline
-x & 2.27 & 0.1 & 23.23 & 0.00\tabularnewline
+(Intercept) & 0.05 & 0.11 & 0.46 & 0.65\tabularnewline
+x & 2.00 & 0.12 & 16.91 & 0.00\tabularnewline
 \bottomrule
 \end{longtable}
 
@@ -166,10 +173,10 @@ linear regression.}
 
 \subsection{Citations}\label{citations}
 
-The relationship was first described by Halpern et al. (2006). However,
-there are also opinions that the relationship is spurious (Keil \emph{et
-al.} 2012). We used R for our calculations (R Core Team 2015), and we
-used package \texttt{knitcitations} (Boettiger 2015) to make the
+The relationship was first described by Halpern \emph{et al.} (2006).
+However, there are also opinions that the relationship is spurious (Keil
+\emph{et al.} 2012). We used R for our calculations (R Core Team 2016),
+and we used package \texttt{knitcitations} (Boettiger 2015) to make the
 bibliography.
 
 \section{Results and discussion}\label{results-and-discussion}
@@ -200,21 +207,29 @@ suas latine vix, eos oblique sanctus pertinax cu.
 \section*{References}\label{references}
 \addcontentsline{toc}{section}{References}
 
-Boettiger, C. (2015). \emph{Knitcitations: Citations for knitr markdown
-files}. Retrieved from \url{https://github.com/cboettig/knitcitations}
+\hypertarget{refs}{}
+\hypertarget{ref-Boettiger_2015}{}
+Boettiger, C. (2015). \emph{Knitcitations: Citations for 'knitr'
+markdown files}. Retrieved from
+\url{https://CRAN.R-project.org/package=knitcitations}
 
+\hypertarget{ref-Halpern_2006}{}
 Halpern, B.S., Regan, H.M., Possingham, H.P. \& McCarthy, M.A. (2006).
-Accounting for uncertainty in marine reserve design. \emph{Ecol
+Accounting for uncertainty in marine reserve design. \emph{Ecology
 Letters}, \textbf{9}, 2--11. Retrieved from
-\url{http://dx.doi.org/10.1111/j.1461-0248.2005.00827.x}
+\url{https://doi.org/10.1111\%2Fj.1461-0248.2005.00827.x}
 
+\hypertarget{ref-Keil_2012}{}
 Keil, P., Belmaker, J., Wilson, A.M., Unitt, P. \& Jetz, W. (2012).
 Downscaling of species distribution models: A hierarchical approach (R.
-Freckleton, Ed.). \emph{Methods Ecol Evol}, \textbf{4}, 82--94.
-Retrieved from \url{http://dx.doi.org/10.1111/j.2041-210x.2012.00264.x}
+Freckleton, Ed.). \emph{Methods in Ecology and Evolution}, \textbf{4},
+82--94. Retrieved from
+\url{https://doi.org/10.1111\%2Fj.2041-210x.2012.00264.x}
 
-R Core Team. (2015). \emph{R: A language and environment for statistical
+\hypertarget{ref-R_Core_Team_2016}{}
+R Core Team. (2016). \emph{R: A language and environment for statistical
 computing}. R Foundation for Statistical Computing, Vienna, Austria.
-Retrieved from \url{http://www.R-project.org/}
+Retrieved from \url{https://www.R-project.org/}
+
 
 \end{document}
