@@ -189,7 +189,7 @@ get.tree <- function(genus, species)
   # open the remote driver
   remDr <- remoteDriver(port = 4445L)
   remDr$open(silent = TRUE)
-  
+  # 
   # go to the webpage
   remDr$navigate("http://www.bgci.org/global_tree_search.php?sec=globaltreesearch")
   remDr$refresh() # refresh the page
