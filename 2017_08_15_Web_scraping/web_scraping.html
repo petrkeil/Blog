@@ -164,7 +164,8 @@ $(document).ready(function () {
 <li><a href="#installation-of-rselenium-docker-and-selenium-server"><span class="toc-section-number">5.1</span> Installation of <code>RSelenium</code>: Docker and Selenium Server</a></li>
 <li><a href="#example-scraping-biodiversity-data-from-a-page-with-interactive-web-elements"><span class="toc-section-number">5.2</span> Example: Scraping biodiversity data from a page with interactive web elements</a></li>
 </ul></li>
-<li><a href="#session-information"><span class="toc-section-number">6</span> Session information</a></li>
+<li><a href="#other-ideas-notes-useful-stuff"><span class="toc-section-number">6</span> Other ideas, notes, useful stuff</a></li>
+<li><a href="#session-information"><span class="toc-section-number">7</span> Session information</a></li>
 </ul>
 </div>
 
@@ -247,36 +248,37 @@ countries</code></pre></div>
 <pre><code>##  [1] &quot;Argentina&quot;               &quot;Australia&quot;              
 ##  [3] &quot;Austria&quot;                 &quot;Bangladesh&quot;             
 ##  [5] &quot;Belarus&quot;                 &quot;Belgium&quot;                
-##  [7] &quot;Bulgaria&quot;                &quot;Canada&quot;                 
-##  [9] &quot;Chile&quot;                   &quot;China&quot;                  
-## [11] &quot;Colombia&quot;                &quot;Costa Rica&quot;             
-## [13] &quot;Croatia&quot;                 &quot;Czech Republic&quot;         
-## [15] &quot;Denmark&quot;                 &quot;East Timor&quot;             
-## [17] &quot;Egypt&quot;                   &quot;Faroe Islands&quot;          
-## [19] &quot;Finland&quot;                 &quot;France&quot;                 
-## [21] &quot;Germany&quot;                 &quot;Ghana&quot;                  
-## [23] &quot;Greece&quot;                  &quot;Guatemala&quot;              
-## [25] &quot;Hong Kong&quot;               &quot;Hungary&quot;                
-## [27] &quot;Iceland&quot;                 &quot;India&quot;                  
-## [29] &quot;Iran&quot;                    &quot;Ireland&quot;                
-## [31] &quot;Israel&quot;                  &quot;Italy&quot;                  
-## [33] &quot;Japan&quot;                   &quot;Kenya&quot;                  
-## [35] &quot;Liberia&quot;                 &quot;Lithuania&quot;              
-## [37] &quot;Luxembourg&quot;              &quot;Mexico&quot;                 
-## [39] &quot;Myanmar (Burma)&quot;         &quot;Netherlands&quot;            
-## [41] &quot;Nigeria&quot;                 &quot;Norway&quot;                 
-## [43] &quot;Pakistan&quot;                &quot;Palestine&quot;              
-## [45] &quot;Peru&quot;                    &quot;Poland&quot;                 
-## [47] &quot;Portugal&quot;                &quot;Romania&quot;                
-## [49] &quot;Russia and Soviet Union&quot; &quot;Saint Lucia&quot;            
-## [51] &quot;Slovenia&quot;                &quot;South Africa&quot;           
-## [53] &quot;South Korea&quot;             &quot;Spain&quot;                  
-## [55] &quot;Sweden&quot;                  &quot;Switzerland&quot;            
-## [57] &quot;Tibet&quot;                   &quot;Trinidad and Tobago&quot;    
-## [59] &quot;Tunisia&quot;                 &quot;Turkey&quot;                 
-## [61] &quot;United Kingdom&quot;          &quot;United States&quot;          
-## [63] &quot;Venezuela&quot;               &quot;Vietnam&quot;                
-## [65] &quot;Yemen&quot;                   &quot;Yugoslavia&quot;</code></pre>
+##  [7] &quot;Bosnia and Herzegovina&quot;  &quot;Bulgaria&quot;               
+##  [9] &quot;Canada&quot;                  &quot;Chile&quot;                  
+## [11] &quot;China&quot;                   &quot;Colombia&quot;               
+## [13] &quot;Costa Rica&quot;              &quot;Croatia&quot;                
+## [15] &quot;Czech Republic&quot;          &quot;Denmark&quot;                
+## [17] &quot;East Timor&quot;              &quot;Egypt&quot;                  
+## [19] &quot;Faroe Islands&quot;           &quot;Finland&quot;                
+## [21] &quot;France&quot;                  &quot;Germany&quot;                
+## [23] &quot;Ghana&quot;                   &quot;Greece&quot;                 
+## [25] &quot;Guatemala&quot;               &quot;Hong Kong&quot;              
+## [27] &quot;Hungary&quot;                 &quot;Iceland&quot;                
+## [29] &quot;India&quot;                   &quot;Iran&quot;                   
+## [31] &quot;Ireland&quot;                 &quot;Israel&quot;                 
+## [33] &quot;Italy&quot;                   &quot;Japan&quot;                  
+## [35] &quot;Kenya&quot;                   &quot;Liberia&quot;                
+## [37] &quot;Lithuania&quot;               &quot;Luxembourg&quot;             
+## [39] &quot;Mexico&quot;                  &quot;Myanmar (Burma)&quot;        
+## [41] &quot;Netherlands&quot;             &quot;Nigeria&quot;                
+## [43] &quot;Norway&quot;                  &quot;Pakistan&quot;               
+## [45] &quot;Palestine&quot;               &quot;Peru&quot;                   
+## [47] &quot;Poland&quot;                  &quot;Portugal&quot;               
+## [49] &quot;Romania&quot;                 &quot;Russia and Soviet Union&quot;
+## [51] &quot;Saint Lucia&quot;             &quot;Slovenia&quot;               
+## [53] &quot;South Africa&quot;            &quot;South Korea&quot;            
+## [55] &quot;Spain&quot;                   &quot;Sweden&quot;                 
+## [57] &quot;Tibet&quot;                   &quot;Switzerland&quot;            
+## [59] &quot;Trinidad and Tobago&quot;     &quot;Tunisia&quot;                
+## [61] &quot;Turkey&quot;                  &quot;Ukraine&quot;                
+## [63] &quot;United Kingdom&quot;          &quot;United States&quot;          
+## [65] &quot;Venezuela&quot;               &quot;Vietnam&quot;                
+## [67] &quot;Yemen&quot;</code></pre>
 <p>Second, get the lists of laureates using exactly the same approach, but a different CSS selector:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">laureates &lt;-<span class="st"> </span><span class="kw">read_html</span>(<span class="st">&quot;https://en.wikipedia.org/wiki/List_of_Nobel_laureates_by_country&quot;</span>) %&gt;%
 <span class="st">             </span><span class="kw">html_nodes</span>(<span class="dt">css =</span> <span class="st">&quot;h2 ~ ol&quot;</span>) %&gt;%<span class="st"> </span>
@@ -327,7 +329,7 @@ sudo docker ps</code></pre>
   <span class="co"># open the remote driver</span>
   remDr &lt;-<span class="st"> </span><span class="kw">remoteDriver</span>(<span class="dt">port =</span> 4445L)
   remDr$<span class="kw">open</span>(<span class="dt">silent =</span> <span class="ot">TRUE</span>)
-  
+  <span class="co"># </span>
   <span class="co"># go to the webpage</span>
   remDr$<span class="kw">navigate</span>(<span class="st">&quot;http://www.bgci.org/global_tree_search.php?sec=globaltreesearch&quot;</span>)
   remDr$<span class="kw">refresh</span>() <span class="co"># refresh the page</span>
@@ -378,11 +380,20 @@ sudo docker ps</code></pre>
 ## [19] &quot;Spain&quot;                                     
 ## [20] &quot;Switzerland&quot;                               
 ## [21] &quot;Ukraine&quot;</code></pre>
+</div>
+</div>
+<div id="other-ideas-notes-useful-stuff" class="section level1">
+<h1><span class="header-section-number">6</span> Other ideas, notes, useful stuff</h1>
+<ul>
+<li><p><strong>Chrome developer tools</strong>: there is more to them then just the elements tab. Have a look at Network for live monitoring and console for direct interaction (js). Ressource <a href="http://discover-devtools.codeschool.com" class="uri">http://discover-devtools.codeschool.com</a></p></li>
+<li><p><strong>tcpdump/wireshark</strong> can inspect the actual network traffic (also outside of the browser).</p></li>
+<li><p><strong>wget</strong> and curl for fetching directly accessible data. They have switches for authentication and user agent (string that client supplies to server to communicate capabilities).</p></li>
+<li><p>Knowledge of <strong>regular expressions</strong></p></li>
+</ul>
 <hr />
 </div>
-</div>
 <div id="session-information" class="section level1">
-<h1><span class="header-section-number">6</span> Session information</h1>
+<h1><span class="header-section-number">7</span> Session information</h1>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sessionInfo</span>()</code></pre></div>
 <pre><code>## R version 3.4.1 (2017-06-30)
 ## Platform: x86_64-pc-linux-gnu (64-bit)
@@ -408,7 +419,7 @@ sudo docker ps</code></pre>
 ## 
 ## loaded via a namespace (and not attached):
 ##  [1] Rcpp_0.12.12     knitr_1.17       R6_2.2.2         stringr_1.2.0   
-##  [5] httr_1.2.1       caTools_1.17.1   tools_3.4.1      binman_0.1.0    
+##  [5] httr_1.3.1       caTools_1.17.1   tools_3.4.1      binman_0.1.0    
 ##  [9] semver_0.2.0     selectr_0.3-1    htmltools_0.3.6  assertthat_0.2.0
 ## [13] openssl_0.9.6    yaml_2.1.14      rprojroot_1.2    digest_0.6.12   
 ## [17] bitops_1.0-6     curl_2.8.1       evaluate_0.10.1  wdman_0.2.2     

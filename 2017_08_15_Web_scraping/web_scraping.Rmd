@@ -224,6 +224,16 @@ Let's try it out:
 get.tree("Abies","alba")
 ```
 
+# Other ideas, notes, useful stuff
+
+- **Chrome developer tools**: there is more to them then just the elements tab. Have a look at Network for live monitoring and console for direct interaction (js). Ressource http://discover-devtools.codeschool.com
+
+- **tcpdump/wireshark** can inspect the actual network traffic (also outside of the browser).
+
+- **wget** and curl for fetching directly accessible data. They have switches for authentication and user agent (string that client supplies to server to communicate capabilities).
+
+- Knowledge of **regular expressions** 
+
 --------------------------------------------------------------------------------
 
 # Session information
